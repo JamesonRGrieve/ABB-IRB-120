@@ -78,10 +78,11 @@ local var robtarget robTEST:= [[928.6752,554.3275,-177.9826],[-0.08751068,-0.589
         ! Implement the logic to open the gripper
     ENDPROC
 
-    FUNC num[][][] get_pattern(n_disk)
+    FUNC array get_pattern(VAR num n_disk)
         VAR num add_val_1;
         VAR num add_val_2;
         VAR num i;
+
 
         IF n_disk < 2 THEN
             TPWrite "pattern is only useful for n_disk >= 2";
@@ -115,7 +116,7 @@ local var robtarget robTEST:= [[928.6752,554.3275,-177.9826],[-0.08751068,-0.589
         RETURN pattern;
     ENDFUNC
 
-    FUNC num[] get_mv_array(n_disk)
+    FUNC array get_mv_array(var num n_disk)
         VAR num i;
         VAR num temp_array{100};  ! Adjust size as needed
         VAR num temp_size;
@@ -150,7 +151,7 @@ local var robtarget robTEST:= [[928.6752,554.3275,-177.9826],[-0.08751068,-0.589
         RETURN mv_array;
     ENDFUNC
 
-    PROC hanoi_move(n_disk)
+    PROC hanoi_move(var num n_disk)
         VAR num n_iter;
         VAR num mv_counter;
         VAR num i;
